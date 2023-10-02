@@ -24,9 +24,24 @@ Welcome to my submission for the CausalFunnel Full Stack Developer Intern positi
 
 5. **Report Page:** After completing the quiz or when the timer expires, users are directed to a report page. This report displays each question alongside the user's answer and the correct answer, making it easy to compare.
 
-## Tech Stack
 
-I have built this application using React.js, a popular front-end library known for its flexibility and performance. React enables me to create interactive user interfaces and manage complex state seamlessly.
+## Tech Stack & Packages Used
+
+- **React.js:** A powerful JavaScript library for building interactive user interfaces. The application leverages the latest version of React (18.2.0) for its flexibility and performance.
+
+- **Vite:** A fast and efficient build tool that serves as the development environment for this project. Vite (v4.4.5) enables quick development with its blazing-fast bundling and reloading capabilities.
+
+- **Tailwind CSS:** A utility-first CSS framework that simplifies the styling process and ensures consistent design across the application. Tailwind CSS (v3.3.3) is used for responsive design and styling.
+
+- **Axios:** A promise-based HTTP client for making API requests. Axios (v1.5.1) is used to fetch quiz questions from the Open Trivia Database API.
+
+- **React Router DOM:** A library for handling routing in single-page applications. React Router DOM (v6.16.0) is used for managing different views and navigation within the quiz application.
+
+- **React Slick and Slick Carousel:** React Slick (v0.29.0) is used to create a smooth and interactive question carousel. Slick Carousel (v1.8.1) provides the underlying functionality for the carousel component.
+
+- **React Countdown and React Countdown Circle Timer:** These libraries (v2.3.5 and v3.2.1, respectively) are used to implement the countdown timer, ensuring users are aware of the time remaining during the quiz.
+
+- **React Icons:** A library that provides a wide selection of icons for use in the user interface. React Icons (v4.11.0) enhance the visual appeal of the application.
 
 ## Assumptions
 
