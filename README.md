@@ -60,7 +60,7 @@ During the development process, I encountered several challenges and addressed t
 
 - **State Management:** Managing the application's state, including user data, quiz progress, and timers, was achieved using React's state and context API.
 
-## Bonus (Optional)
+## Bonus 
 
 While implementing the core requirements, I have also incorporated additional features to enhance the user experience:
 
