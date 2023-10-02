@@ -57,12 +57,12 @@ While implementing the core requirements, I have also incorporated additional fe
 
 To run this project locally, you will need Node.js and npm (Node Package Manager) installed on your computer. Follow these steps:
 
-1. Clone the repository:
+- Clone the repository:
    ``` git clone https://github.com/omkar-here/Quiz-App.git```
-   2. Install dependencies:
+- Install dependencies:
       ``` npm install or npm i ```
   
-3. Start the development server:
+- Start the development server:
 ```npm run dev```
 
 ## Submission
@@ -75,6 +75,6 @@ Feel free to explore and interact with the quiz application, and I look forward 
 
 Thank you for considering my application.
 
-Best regards,
-Omkar Anabathula
+Best regards,<br />
+<strong>Omkar Anabathula</strong>
 
