@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import QuestionStats from "./QuestionStats";
-
-function QuestionPanel(props) {
+export default function QuestionPanel(props) {
   const {
     questions,
     setQuestions,
@@ -9,22 +8,6 @@ function QuestionPanel(props) {
     setCurrentQuestion,
     reportPage,
   } = props;
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Check if the screen width is below a certain threshold (e.g., 640px) to determine if it's a mobile device
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-
-    handleResize(); // Check on initial load
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const CSS = {
     currentQuestionFocusCSS: "border-4 box-border border-red-400",
@@ -34,41 +17,22 @@ function QuestionPanel(props) {
   };
 
   const handleQuestionButtonClick = (questionIndex) => {
-    if (!isMobile) {
-      if (reportPage === false) {
-        setQuestions((prevQuestions) => {
-          const updatedQuestions = [...prevQuestions];
-          updatedQuestions[questionIndex].visited = true;
-          console.log(updatedQuestions[questionIndex]);
-          return updatedQuestions;
-        });
-      }
-
-      setCurrentQuestion(questionIndex);
+    if (reportPage === false) {
+      setQuestions((prevQuestions) => {
+        const updatedQuestions = [...prevQuestions];
+        updatedQuestions[questionIndex].visited = true;
+        return updatedQuestions;
+      });
     }
-  };
 
-  const toggleMobileView = () => {
-    if (isMobile) {
-      // Render a toggle button for mobile screens
-      return (
-        <button
-          onClick={() => setIsMobile(false)}
-          className="bg-blue-500 text-white font-bold py-2 px-4 rounded-md"
-        >
-          Toggle Question Panel
-        </button>
-      );
-    }
+    setCurrentQuestion(questionIndex);
   };
-
   return (
     <div>
       <div>
         <QuestionStats questions={questions} />
       </div>
-      <div className="grid grid-cols-3 gap-4 p-5">
-        {isMobile && toggleMobileView()}
+      <div className="grid  grid-cols-3 gap-4 p-5">
         {questions.map((question, index) => (
           <button
             key={index}
@@ -94,5 +58,3 @@ function QuestionPanel(props) {
     </div>
   );
 }
-
-export default QuestionPanel;

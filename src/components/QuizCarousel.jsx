@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import he from "he";
 
 function QuestionCarousel(props) {
   const {
@@ -12,25 +13,22 @@ function QuestionCarousel(props) {
     isTimeOut,
     reportPage,
     setReportPage,
-    // setIsTimeOut,
   } = props;
 
   useEffect(() => {
-    console.log(reportPage);
     sliderRef.current.slickGoTo(currentQuestion);
   }, [currentQuestion, questions, isTimeOut]);
 
   const sliderRef = useRef(null);
 
   const handleVisitedQuestion = (questionIndex) => {
-      if(reportPage===false){
-    setQuestions((prevQuestions) => {
-      const updatedQuestions = [...prevQuestions];
-      updatedQuestions[questionIndex].visited = true;
-      console.log(updatedQuestions[questionIndex]);
-      return updatedQuestions;
-    });
-  }
+    if (reportPage === false) {
+      setQuestions((prevQuestions) => {
+        const updatedQuestions = [...prevQuestions];
+        updatedQuestions[questionIndex].visited = true;
+        return updatedQuestions;
+      });
+    }
   };
 
   const handleNext = () => {
@@ -55,7 +53,6 @@ function QuestionCarousel(props) {
     setQuestions((prevQuestions) => {
       const updatedQuestions = [...prevQuestions];
       updatedQuestions[questionIndex].marked_answer = choice;
-      console.log(updatedQuestions[questionIndex]);
       return updatedQuestions;
     });
   };
@@ -88,16 +85,14 @@ function QuestionCarousel(props) {
               return (
                 <div key={index}>
                   <h2 className="text-2xl font-semibold mb-4">
-                    {question.question}
+                    {he.decode(question.question)}
                   </h2>
-                  {console.log(questions)}
                   <ul className="space-y-2">
                     {question.answers?.map((choice, choiceIndex) => {
                       const isChoiceCorrect =
                         choice === question.correct_answer;
                       const isChoiceMarked = choice === question.marked_answer;
 
-                      // Determine the background color class based on conditions
                       const bgColorClass = isChoiceCorrect
                         ? "bg-green-500"
                         : isChoiceMarked
@@ -116,11 +111,12 @@ function QuestionCarousel(props) {
                               className="form-radio text-blue-300"
                               name={`choice-${index}`}
                               onChange={() => {
-                                console.log("Selected choice:", choice);
                                 return handleMarkChoice(index, choice);
                               }}
                             />
-                            <span className="ml-2 text-gray-300">{choice}</span>
+                            <span className="ml-2 text-gray-300">
+                              {he.decode(choice)}
+                            </span>
                           </label>
                         </li>
                       );
@@ -142,9 +138,8 @@ function QuestionCarousel(props) {
             return (
               <div key={index}>
                 <h2 className="text-2xl font-semibold mb-4">
-                  {question.question}
+                  {he.decode(question.question)}
                 </h2>
-
                 <ul className="space-y-2">
                   {question.answers?.map((choice, choiceIndex) => (
                     <li
@@ -157,11 +152,12 @@ function QuestionCarousel(props) {
                           className="form-radio text-blue-300"
                           name={`choice-${index}`}
                           onChange={() => {
-                            console.log("Selected choice:", choice);
                             return handleMarkChoice(index, choice);
                           }}
                         />
-                        <span className="ml-2 text-gray-300">{choice}</span>
+                        <span className="ml-2 text-gray-300">
+                          {he.decode(choice)}
+                        </span>
                       </label>
                     </li>
                   ))}

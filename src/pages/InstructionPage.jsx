@@ -1,22 +1,20 @@
 import React, { useState } from "react";
-import { useUser } from "../context/UserContext"; // Import the useUser hook
+import { useUser } from "../context/UserContext";
 import { Link } from "react-router-dom";
 
 function InstructionPage() {
   const [showInstructions, setShowInstructions] = useState(false);
-  const { userData, updateUser } = useUser(); // Access the context
+  const { userData, updateUser } = useUser();
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  console.log(userData)
-   const handleInputChange = (e) => {
-     const { name, value } = e.target;
-     updateUser({ [name]: value });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    updateUser({ [name]: value });
 
-     // Check if both username and email are valid
-     const isUsernameValid = userData.username.trim() !== "";
-     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userData.email);
+    const isUsernameValid = userData.username.trim() !== "";
+    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userData.email);
 
-     setIsButtonDisabled(!(isUsernameValid && isEmailValid));
-   };
+    setIsButtonDisabled(!(isUsernameValid && isEmailValid));
+  };
 
   return (
     <div className="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen flex flex-col justify-center items-center text-white">
@@ -83,7 +81,7 @@ function InstructionPage() {
 
           <div className="mt-6">
             <Link
-              to={isButtonDisabled? "/" :"/quiz "}
+              to={isButtonDisabled ? "/" : "/quiz "}
               className={`bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md cursor-pointer ${
                 isButtonDisabled ? "opacity-50 cursor-not-allowed" : ""
               }`}

@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Function to shuffle an array randomly
 function shuffleArray(array) {
   const shuffledArray = [...array];
   for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -28,7 +27,6 @@ function QuestionCarousel(props) {
       if (!updatedQuestions.has(questionIndex)) {
         updatedQuestions.add(questionIndex);
       }
-      console.log("Visited question with index:", questionIndex);
       return updatedQuestions;
     });
   };
@@ -103,7 +101,6 @@ function QuestionCarousel(props) {
                         className="form-radio text-blue-300"
                         name={`choice-${index}`} // Add a unique name for each question
                         onChange={() => {
-                          console.log("Selected choice:", choice);
                           handleMarkChoice(index, choice);
                         }}
                       />

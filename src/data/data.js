@@ -157,23 +157,3 @@ export const data = [
   },
 ];
 
-// [
-//   {
-//     id: 1,
-//     question: "Question 1: What is the capital of France?",
-//     choices: ["Paris", "London", "Berlin", "Madrid"],
-//     correctAnswer: "Paris",
-//     visited: false,
-//     markedStatus: false,
-//     markedAnswer: "",
-//   },
-//   {
-//     id: 2,
-//     question: "Question 2: What is the largest planet in our solar system?",
-//     choices: ["Earth", "Mars", "Jupiter", "Venus"],
-//     correctAnswer: "Jupiter",
-//     visited: false,
-//     markedStatus: false,
-//     markedAnswer: "",
-//   },
-// ];

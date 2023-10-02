@@ -1,5 +1,3 @@
-// QuestionStats.js
-
 import React, { useEffect, useReducer } from "react";
 import { BiSolidRectangle } from "react-icons/bi";
 const initialState = {
@@ -25,19 +23,14 @@ function QuestionStats({ questions }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    console.log("hi");
-    console.log(questions);
-    // Count visited questions
     const visited = questions.filter((question) => question.visited).length;
     dispatch({ type: "UPDATE_VISITED_COUNT", payload: visited });
 
-    // Count marked questions
     const marked = questions.filter((question) =>
       question.marked_answer ? true : false
     ).length;
     dispatch({ type: "UPDATE_MARKED_COUNT", payload: marked });
 
-    // Count unvisited questions
     const unvisited = questions.filter((question) => !question.visited).length;
     dispatch({ type: "UPDATE_UNVISITED_COUNT", payload: unvisited });
   }, [questions]);
