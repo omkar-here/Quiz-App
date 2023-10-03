@@ -54,12 +54,15 @@ I have made the following assumptions while developing this application:
 
 During the development process, I encountered several challenges and addressed them effectively:
 
-- **API Integration:** Fetching quiz questions from an external API required handling asynchronous operations and formatting the data for the application.
+- **API Integration:** When fetching quiz questions from an external API, there were challenges in dealing with asynchronous operations and decoding HTML Unicode in the fetched data. <br />
+ **Solution:**  To overcome this, I used React's state for efficient state management and integrated the ```he``` package from npm to decode HTML Unicode, ensuring the data's correctness.
 
 - **Responsive Design:** Achieving a seamless user experience on various devices demanded careful styling and responsive design techniques.
+  **Solution:**  To address this, I implemented a toggle feature that minimizes the navigation panel for mobile screens, significantly improving the application's responsiveness and user-friendliness..
 
-- **State Management:** Managing the application's state, including user data, quiz progress, and timers, was achieved using React's state and context API.
-
+- **State Management:** Managing the application's state, including user data, quiz progress, and timers, was achieved using React's state and context API.<br/>
+**Solution:** I used React's built-in tools to manage the app's data and made sure everything worked smoothly. This made it easier to handle the app's functions and data, and it helped things run more efficiently.
+  
 ## Bonus 
 
 While implementing the core requirements, I have also incorporated additional features to enhance the user experience:
@@ -72,13 +75,16 @@ While implementing the core requirements, I have also incorporated additional fe
 
 To run this project locally, you will need Node.js and npm (Node Package Manager) installed on your computer. Follow these steps:
 
-- Clone the repository:
+- Clone the repository: <br />
    ``` git clone https://github.com/omkar-here/Quiz-App.git```
-- Install dependencies:
-      ``` npm install or npm i ```
-  
-- Start the development server:
+- Install dependencies: <br />
+      ``` npm install``` or ```npm i ```
+- Navigate to Quiz-App Folder <br />
+    ```cd '.\Quiz App\'```
+- Start the development server: <br/>
 ```npm run dev```
+- Go this URL to see the running site <br />
+```https://localhost:5173/```
 
 ## Submission
 
